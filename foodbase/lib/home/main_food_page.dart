@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:foodbase/home/food_page_body.dart';
 import 'package:foodbase/utils/colors.dart';
 import 'package:foodbase/utils/widgets/big_text.dart';
 import 'package:foodbase/utils/widgets/small_text.dart';
@@ -37,7 +38,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                             text: 'HazratGanj',
                             color: Colors.black45,
                           ),
-                          const  Icon(Icons.arrow_drop_down)
+                          const Icon(Icons.arrow_drop_down)
                         ],
                       )
                     ],
@@ -58,6 +59,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 ]),
           ),
         ),
+        const FoodPageBody()
       ],
     ));
   }
