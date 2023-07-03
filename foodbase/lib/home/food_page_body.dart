@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodbase/utils/colors.dart';
+import 'package:foodbase/utils/widgets/big_text.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
@@ -36,12 +38,34 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-              height: 140,
-              margin: const EdgeInsets.only(left: 40, right: 40, bottom: 10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: Colors.white,
-              )),
+            height: 140,
+            margin: const EdgeInsets.only(left: 40, right: 40, bottom: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              color: Colors.white,
+            ),
+            child: Container(
+              padding: EdgeInsets.only(top: 10, left: 15, right: 15),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    BigText(text: 'Chinese Slide'),
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Wrap(
+                            children: List.generate(
+                                5,
+                                (index) => Icon(
+                                      Icons.star,
+                                      color: AppColors.mainColor,
+                                      size: 15,
+                                    )))
+                      ],
+                    )
+                  ]),
+            ),
+          ),
         )
       ],
     );
