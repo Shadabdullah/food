@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodbase/utils/colors.dart';
 import 'package:foodbase/utils/widgets/big_text.dart';
+import 'package:foodbase/utils/widgets/icons-text-widget.dart';
+import 'package:foodbase/utils/widgets/small_text.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
@@ -28,7 +30,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       children: [
         Container(
             height: 220,
-            margin: const EdgeInsets.only(left: 10, right: 10),
+            margin: const EdgeInsets.only(left: 15, right: 15),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 color: Colors.amber,
@@ -38,8 +40,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: 140,
-            margin: const EdgeInsets.only(left: 40, right: 40, bottom: 10),
+            height: 110,
+            margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               color: Colors.white,
@@ -60,7 +62,38 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                       Icons.star,
                                       color: AppColors.mainColor,
                                       size: 15,
-                                    )))
+                                    ))),
+                        SizedBox(width: 10),
+                        SmallText(text: '4.5'),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        SmallText(text: 'comments'),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        IconAndTextWidget(
+                            icon: Icons.circle_sharp,
+                            text: 'Normal',
+                            iconColor: AppColors.iconColor1),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        IconAndTextWidget(
+                            icon: Icons.location_on,
+                            text: '1.7km',
+                            iconColor: AppColors.mainColor2),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        IconAndTextWidget(
+                            icon: Icons.access_time_rounded,
+                            text: '32 min',
+                            iconColor: AppColors.iconColor2)
                       ],
                     )
                   ]),
