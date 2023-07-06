@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:foodbase/home/food_page_body.dart';
 import 'package:foodbase/utils/colors.dart';
 import 'package:foodbase/utils/widgets/big_text.dart';

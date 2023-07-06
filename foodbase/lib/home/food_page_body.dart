@@ -12,6 +12,28 @@ class FoodPageBody extends StatefulWidget {
 }
 
 class _FoodPageBodyState extends State<FoodPageBody> {
+  PageController pageController = PageController(viewportFraction: 0.85);
+
+  var _crrentPateValue = 0.0;
+  double _scaleFactor = 0.8;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController.addListener(() {
+      setState(() {
+        _crrentPateValue = pageController.page!;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    pageController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,7 +47,15 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     );
   }
 
-  Widget _buildPageItem(int poition) {
+  Widget _buildPageItem(int position) {
+    Matrix4 matrix4 = Matrix4.identity();
+
+    if(position == _crrentPateValue.floor()){
+      
+    }
+
+
+
     return Stack(
       children: [
         Container(
