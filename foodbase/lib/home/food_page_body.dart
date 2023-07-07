@@ -18,7 +18,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Container(
       height: 320,
-      color: Colors.blueGrey,
+      margin: EdgeInsets.only(top: 20),
       child: PageView.builder(
           itemCount: 5,
           itemBuilder: (context, position) {
@@ -45,9 +45,15 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             height: 120,
             margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              color: Colors.white,
-            ),
+                borderRadius: BorderRadius.circular(30),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xffe8e8e8),
+                    blurRadius: (.5),
+                    offset: Offset(0, 5),
+                  )
+                ]),
             child: Container(
               padding: EdgeInsets.only(top: 10, left: 15, right: 15),
               child: Column(
