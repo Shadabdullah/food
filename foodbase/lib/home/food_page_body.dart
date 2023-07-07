@@ -14,26 +14,6 @@ class FoodPageBody extends StatefulWidget {
 class _FoodPageBodyState extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.85);
 
-  var _crrentPateValue = 0.0;
-  double _scaleFactor = 0.8;
-
-  @override
-  void initState() {
-    super.initState();
-    pageController.addListener(() {
-      setState(() {
-        _crrentPateValue = pageController.page!;
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-
-    pageController.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,95 +28,81 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   }
 
   Widget _buildPageItem(int position) {
-    Matrix4 matrix4 = Matrix4.identity();
-
-    if (position == _crrentPateValue.floor()) {
-      var currScale = 1 - (_crrentPateValue - position) * (1 - _scaleFactor);
-      matrix4 = Matrix4.diagonal3Values(1, currScale, 1);
-    } else if (position == _crrentPateValue.floor() + 1) {
-      var currScale =
-          _scaleFactor + (_crrentPateValue - position + 1) * (1 - _scaleFactor);
-          matrix4 = Matrix4.diagonal3Values(1, currScale, 1);
-    }
-
-    return Transform(
-      transform: matrix4,
-      child: Stack(
-        children: [
-          Container(
-              height: 220,
-              margin: const EdgeInsets.only(left: 15, right: 15),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: Colors.amber,
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage('assets/image/food0.png')))),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              height: 110,
-              margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
-              decoration: BoxDecoration(
+    return Stack(
+      children: [
+        Container(
+            height: 220,
+            margin: const EdgeInsets.only(left: 15, right: 15),
+            decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                color: Colors.white,
-              ),
-              child: Container(
-                padding: EdgeInsets.only(top: 10, left: 15, right: 15),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      BigText(text: 'Chinese Slide'),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
-                          Wrap(
-                              children: List.generate(
-                                  5,
-                                  (index) => Icon(
-                                        Icons.star,
-                                        color: AppColors.mainColor,
-                                        size: 15,
-                                      ))),
-                          SizedBox(width: 10),
-                          SmallText(text: '4.5'),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          SmallText(text: 'comments'),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          IconAndTextWidget(
-                              icon: Icons.circle_sharp,
-                              text: 'Normal',
-                              iconColor: AppColors.iconColor1),
-                          SizedBox(
-                            width: 30,
-                          ),
-                          IconAndTextWidget(
-                              icon: Icons.location_on,
-                              text: '1.7km',
-                              iconColor: AppColors.mainColor2),
-                          SizedBox(
-                            width: 30,
-                          ),
-                          IconAndTextWidget(
-                              icon: Icons.access_time_rounded,
-                              text: '32 min',
-                              iconColor: AppColors.iconColor2)
-                        ],
-                      )
-                    ]),
-              ),
+                color: Colors.amber,
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/image/food0.png')))),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            height: 120,
+            margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              color: Colors.white,
             ),
-          )
-        ],
-      ),
+            child: Container(
+              padding: EdgeInsets.only(top: 10, left: 15, right: 15),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    BigText(text: 'Chinese Slide'),
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Wrap(
+                            children: List.generate(
+                                5,
+                                (index) => Icon(
+                                      Icons.star,
+                                      color: AppColors.mainColor,
+                                      size: 15,
+                                    ))),
+                        SizedBox(width: 10),
+                        SmallText(text: '4.5'),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        SmallText(text: 'comments'),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        IconAndTextWidget(
+                            icon: Icons.circle_sharp,
+                            text: 'Normal',
+                            iconColor: AppColors.iconColor1),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        IconAndTextWidget(
+                            icon: Icons.location_on,
+                            text: '1.7km',
+                            iconColor: AppColors.mainColor2),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        IconAndTextWidget(
+                            icon: Icons.access_time_rounded,
+                            text: '32 min',
+                            iconColor: AppColors.iconColor2)
+                      ],
+                    )
+                  ]),
+            ),
+          ),
+        )
+      ],
     );
   }
 }
